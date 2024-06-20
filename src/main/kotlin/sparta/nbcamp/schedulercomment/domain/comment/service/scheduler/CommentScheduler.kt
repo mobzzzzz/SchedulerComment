@@ -2,13 +2,11 @@ package sparta.nbcamp.schedulercomment.domain.comment.service.scheduler
 
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Component
-import sparta.nbcamp.schedulercomment.domain.comment.repository.CommentRepository
-import java.time.Instant
-import java.time.temporal.ChronoUnit
+import sparta.nbcamp.schedulercomment.domain.comment.service.CommentService
 
 @Component
 class CommentScheduler(
-    private val commentRepository: CommentRepository
+    private val commentService: CommentService
 ) {
     /* cron
     1 2 3 4 5 6  // 순서
@@ -23,14 +21,13 @@ class CommentScheduler(
     6. 요일(0-7)
      */
 
-    @Scheduled(cron = "0 0 6 * * *")
+    @Scheduled(cron = "0 0/1 * * * *")
     fun updateNicknames() {
-        commentRepository.updateUserNicknames()
+        commentService.updateNicknames()
     }
 
-    @Scheduled(cron = "0 0 6 * * *")
+    @Scheduled(cron = "0 0/1 * * * *")
     fun deleteOldSoftDeletedComments() {
-        val expireTimestamp = Instant.now().minus(30, ChronoUnit.DAYS).toEpochMilli()
-        commentRepository.deleteOldSoftDeletedComments(expireTimestamp)
+        commentService.deleteOldSoftDeletedComments()
     }
 }
