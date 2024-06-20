@@ -10,6 +10,7 @@ import jakarta.persistence.Table
 import org.hibernate.annotations.SQLDelete
 import org.hibernate.annotations.SQLRestriction
 import sparta.nbcamp.schedulercomment.domain.common.BaseTimeEntity
+import java.time.LocalDateTime
 
 @Entity
 @Table(name = "comment")
@@ -29,5 +30,5 @@ class Comment(
 
     var userId: Long? = null,
 
-    var deletedAt: Long? = null,
+    var deletedAt: LocalDateTime? = null,
 ) : BaseTimeEntity()
