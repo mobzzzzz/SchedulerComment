@@ -11,12 +11,10 @@ class CommentService(
 ) {
 
     fun updateNicknames() {
-        println("updateNicknames()")
         commentRepository.updateUserNicknames()
     }
 
     fun deleteOldSoftDeletedComments() {
-        println("deleteOldSoftDeletedComments()")
         val expireTimestamp = Instant.now().minus(30, ChronoUnit.DAYS).toEpochMilli()
         commentRepository.deleteOldSoftDeletedComments(expireTimestamp)
     }
