@@ -2,8 +2,7 @@ package sparta.nbcamp.schedulercomment.domain.comment.service
 
 import org.springframework.stereotype.Service
 import sparta.nbcamp.schedulercomment.domain.comment.repository.CommentRepository
-import java.time.Instant
-import java.time.temporal.ChronoUnit
+import java.time.LocalDateTime
 
 @Service
 class CommentService(
@@ -15,7 +14,7 @@ class CommentService(
     }
 
     fun deleteOldSoftDeletedComments() {
-        val expireTimestamp = Instant.now().minus(30, ChronoUnit.DAYS).toEpochMilli()
-        commentRepository.deleteOldSoftDeletedComments(expireTimestamp)
+        val expireDate = LocalDateTime.now().minusSeconds(30)
+        commentRepository.deleteOldSoftDeletedComments(expireDate)
     }
 }
