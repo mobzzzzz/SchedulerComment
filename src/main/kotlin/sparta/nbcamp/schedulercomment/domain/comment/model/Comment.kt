@@ -1,6 +1,8 @@
 package sparta.nbcamp.schedulercomment.domain.comment.model
 
 import jakarta.persistence.Entity
+import jakarta.persistence.EnumType
+import jakarta.persistence.Enumerated
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
@@ -22,6 +24,7 @@ class Comment(
 
     var nickname: String,
 
+    @Enumerated(EnumType.STRING)
     var status: CommentStatus = CommentStatus.ACTIVE,
 
     var userId: Long? = null,
