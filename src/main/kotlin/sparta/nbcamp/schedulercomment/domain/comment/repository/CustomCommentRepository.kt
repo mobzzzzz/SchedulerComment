@@ -1,3 +1,6 @@
 package sparta.nbcamp.schedulercomment.domain.comment.repository
 
-interface CustomCommentRepository
+interface CustomCommentRepository {
+    fun updateUserNicknames()
+    fun deleteOldSoftDeletedComments(expireTimestamp: Long)
+}
