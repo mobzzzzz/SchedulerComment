@@ -17,4 +17,8 @@ class CommentService(
         val expireDate = LocalDateTime.now().minusSeconds(30)
         commentRepository.deleteOldSoftDeletedComments(expireDate)
     }
+
+    fun deleteComment(commentId: Long) {
+        commentRepository.deleteById(commentId)
+    }
 }

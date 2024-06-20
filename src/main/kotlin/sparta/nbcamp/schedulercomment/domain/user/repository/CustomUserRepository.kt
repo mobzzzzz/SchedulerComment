@@ -1,3 +1,5 @@
 package sparta.nbcamp.schedulercomment.domain.user.repository
 
-interface CustomUserRepository
+interface CustomUserRepository {
+    fun updateNickname(userId: Long, nickname: String)
+}
