@@ -26,7 +26,7 @@ class CommentScheduler(
         commentService.updateNicknames()
     }
 
-    @Scheduled(cron = "0 9 * * * *")
+    @Scheduled(cron = "0 0 9 * * *")
     fun deleteOldSoftDeletedComments() {
         commentService.deleteOldSoftDeletedComments()
     }
