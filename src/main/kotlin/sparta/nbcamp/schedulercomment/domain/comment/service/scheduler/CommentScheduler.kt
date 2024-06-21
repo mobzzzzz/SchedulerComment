@@ -21,12 +21,12 @@ class CommentScheduler(
     6. 요일(0-7)
      */
 
-    @Scheduled(cron = "0 0/1 * * * *")
+    @Scheduled(cron = "0 0/10 * * * *")
     fun updateNicknames() {
         commentService.updateNicknames()
     }
 
-    @Scheduled(cron = "0 0/1 * * * *")
+    @Scheduled(cron = "0 9 * * * *")
     fun deleteOldSoftDeletedComments() {
         commentService.deleteOldSoftDeletedComments()
     }
