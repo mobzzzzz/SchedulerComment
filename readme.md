@@ -1,5 +1,7 @@
 # 댓글 스케줄러
 
+Application runner를 통한 유저, 코멘트 데이터가 제공됩니다.
+
 ## updateNicknames
 
 10분마다 실행되는 작업으로 댓글에 기록된 user_id를 기반으로 댓글의 nickname 업데이트합니다.  
